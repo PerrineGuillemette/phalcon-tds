@@ -1,5 +1,12 @@
-<table>
-        <thead></thead>
+<table class="ui table">
+        <thead>
+            <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Email</th>
+                <th>Role</th>
+            </tr>
+        </thead>
         <tbody>
         {%  for user in users %}
         <tr>
@@ -11,3 +18,5 @@
         {% endfor %}
         </tbody>
 </table>
+
+<input type="submit" id="delete">
