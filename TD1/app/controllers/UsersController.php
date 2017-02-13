@@ -6,7 +6,7 @@ class UsersController extends Controller
 {
 
     //Liste par défaut des utilisateurs, triés suivant sField dans l'ordre sens, en utilisant le filtre filter
-    public function indexAction($sfield="firstname",$sene="asc",$filter=null)
+    public function indexAction($sfield="firstname",$sens="asc",$filter=null)
     {
         $users=User::find(
             array("order"=>$sfield)
