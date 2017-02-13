@@ -6,18 +6,20 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
         <title>Phalcon PHP Framework</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="http://clement.barnab2.tk/js/jquery.js"></script>
+    <script src="http://clement.barnab2.tk/semanticUI/semantic.min.js"></script>
+    <script src="http://semantic-ui.com/javascript/library/tablesort.js"></script>
+    <script src="http://clement.barnab2.tk/codiad/workspace/phalcon-tds/user-management/public/js/user.js"></script>
     </head>
     <body>
-        <div class="container">
-            <?= $this->getContent() ?>
+        <div class="ui basic button">
+            <input type="submit" name="envoi" id="envoi" value="Nouvel utilisateur">
         </div>
-        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-        <!-- Latest compiled and minified JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <div class="ui list">
+            <table>
+                <tr><?= $this->getContent() ?></tr></table>
 
-
+        </div>
 
     </body>
 </html>

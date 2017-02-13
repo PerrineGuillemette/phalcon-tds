@@ -6,18 +6,26 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
         <title>Phalcon PHP Framework</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script
+                src="https://code.jquery.com/jquery-3.1.1.min.js"
+                integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+                crossorigin="anonymous"></script>
+        <link rel="stylesheet" type="text/css" href="C:/wamp64/www/phalcon-tds/TD1/semantic/dist/semantic.min.js">
+        <script
+                src="https://code.jquery.com/jquery-3.1.1.min.js"
+                integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+                crossorigin="anonymous"></script>
+        <script src="C:/wamp64/www/phalcon-tds/TD1/semantic/dist/semantic.min.js"></script>
     </head>
     <body>
-        <div class="container">
-            {{ content() }}
+        <div class="ui basic button">
+            <input type="submit" name="envoi" id="envoi" value="Nouvel utilisateur">
         </div>
-        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-        <!-- Latest compiled and minified JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <div class="ui list">
+            <table>
+                <tr>{{ content() }}</tr></table>
 
-
+        </div>
 
     </body>
 </html>
