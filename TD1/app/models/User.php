@@ -3,6 +3,7 @@
 use Phalcon\Validation;
 use Phalcon\Mvc\Model\Validator\Email as EmailValidator;
 
+
 class User extends \Phalcon\Mvc\Model
 {
     protected $id;

@@ -17,7 +17,7 @@
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-         {{ link_to("user","Vue") }}
+
 
     </body>
 </html>

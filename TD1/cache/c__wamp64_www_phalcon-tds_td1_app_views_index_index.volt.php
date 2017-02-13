@@ -15,6 +15,7 @@
 
 <p>This page is located at <code>views/index/index.volt</code></p>
 
+<button class="ui button active">salut</button><br>
 
+<?= $this->tag->linkTo(['users', 'Vue']) ?>
 
-<button class="ui button active">salut</button>
