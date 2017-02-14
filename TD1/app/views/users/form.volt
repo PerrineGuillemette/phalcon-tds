@@ -18,25 +18,62 @@
     <script src="../../../semantic/dist/semantic.min.js"></script>
 </head>
 <body>
-<div class="ui basic button">
-    <input type="submit" name="retour" id="retour" value="Retour à la liste">
-</div>
-{{  }}
-<label for="prenom"></label>Prénom*
-<input type="text" name="prenom" id="prenom">
-<label for="nom"></label>Nom*
-<input type="text" name="nom" id="nom">
-<label for="nom"></label>Login*
-<input type="text" name="login" id="login">
-<label for="mail"></label>Email*
-<input type="text" name="mail" id="mail">
-<label for="role"></label>Role
-<input type="text" name="role" id="role">
-<input type="submit" name="valider" id="valider" value="Valider">
-<input type="submit" name="reinitialiser" id="reinitialiser" value="Réinitialiser">
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<div class="ui left icon input">
+    <a class="ui basic button" href="{{url('users/index')}}">Retour à la liste</a>
+</div><br><br><br>
+    <form class="ui form" action="{{url('users/create')}}" method="post">
+        {% for user in users %}
+        <div>
+        <div class="two fields">
+            <div class="field">
+                <label>Nom</label>
+                <input type="text" name="nom" placeholder="Nom" value="{{ user.lastname }}">
+            </div>
+            <div class="field">
+                <label>Prenom</label>
+                <input type="text" name="prenom" placeholder="Prenom" value="{{ user.firstname }}">
+            </div>
+        </div>
+        <div class="two fields">
+            <div class="field">
+                <label>Login*</label>
+                <input type="text" name="login" placeholder="Login" value="{{ user.login }}">
+            </div>
+            <div class="field">
+                <label>Mot de passe*</label>
+                <input type="text" name="mdp" placeholder="Mot de passe" value="{{ user.password }}">
+            </div>
+        </div>
+        <div class="field">
+            <label>Email*</label>
+            <input type="password" name="mail" placeholder="Email" value="{{ user.email }}">
+        </div>
+        <div class="field">
+            <label>Role</label>
+            <select class="ui fluid dropdown" name="idrole">
+                {% if({{ user.idrole ===2 }}) %}
+                    <option value="2" >user</option>
+                {% else %}
+                    <option value="2" >user</option>
+                {% endif %}
+                {%  if({{ user.idrole ===1 }}) %}
+                    <option value="1" selected >admin</option>
+                {% else %}
+                     <option value="2">admin</option>
+                {% endif %}
+                    {% if({{ user.idrole ===3 }}) %}
+                    <option value="3" selected >superadmin</option>
+                {% else %}
+                    <option value="3">superadmin</option>
+                    {% endif %}
+            </select>
+        </div>
+        <div class="ui buttons">
+            <input type="submit" name="valider" value="Valider" class="positive ui button">
+            <input type="submit" name="reinitialiser" value="Réinitialiser" class="ui button">
+        </div>
+        </div>
+        {% endfor %}
+    </form>
 </body>
 </html>

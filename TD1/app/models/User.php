@@ -115,7 +115,7 @@ class User extends \Phalcon\Mvc\Model
     {
         $validator = new Validation();
 
-        $validator->add(
+      /*  $validator->add(
             'email',
             new EmailValidator(
                 [
@@ -123,7 +123,7 @@ class User extends \Phalcon\Mvc\Model
                     'message' => 'Please enter a correct email address',
                 ]
             )
-        );
+        );*/
 
         return $this->validate($validator);
     }

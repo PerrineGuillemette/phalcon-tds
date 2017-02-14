@@ -15,9 +15,13 @@ class UsersController extends Controller
     }
 
     //Formulaire de saisie/modification d'un utilisateur, id est la clé primaire de l'utilisateur à modifier
-    public function formAction($id){
-        $this->persistent->searchParams = null;
-        $this->view->form = new ProductsForm();
+    public function formAction($id=null){
+        $users = User::find(
+            [
+                "id= $id",
+            ]
+        );
+        $this->view->setVar("users",$users);
     }
 
     //Met à jour l'utilisateur posté dans la base de données, puis affiche un message
@@ -52,20 +56,22 @@ class UsersController extends Controller
 
     }
 
-    public function createAction(){
+    public function createAction($id=null){
         $user = new User();
-        $user->setFirstname($_POST["firstname"]);
-        $user->setLastname($_POST["lastname"]);
+        $user->setFirstname($_POST["prenom"]);
+        $user->setLastname($_POST["nom"]);
         $user->setEmail($_POST["mail"]);
-        $user->setImage($_POST["image"]);
+        $user->setLogin($_POST["login"]);
+        $user->setPassword($_POST["mdp"]);
+        if(isset($_POST['image']))
+            $user->setImage($_POST["image"]);
         $user->setIdrole($_POST["idrole"]);
 
         if ($user->create() === false)
              echo "La création a échouée \n";
         else
-            echo "Utilisateur crée avec succès";
+            echo "Utilisateur créé avec succès";
     }
-
 }
 /*
 exemple de linkTo sur un bouton :
