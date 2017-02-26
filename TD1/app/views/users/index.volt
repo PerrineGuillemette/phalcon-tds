@@ -1,6 +1,6 @@
 
 <div class="ui left icon input">
-    <a class="ui basic button" href="{{url('users/form')}}">Nouvel Utilisateur</a>
+    <a class="ui basic button" href="{{url('users/formAjout')}}">Nouvel Utilisateur</a>
 </div>
 <div class="ui list">
 
@@ -27,7 +27,7 @@
             <td>{{ user.email }}</td>
             <td>{{ user.getRole().getName() }}</td>
             <td>  {{link_to("users/form/"~user.getId(), "<i class='edit icon'") }}</td>
-            <td>{{ link_to("users/delete", "<i class='bordered red remove icon'") }}</td>
+            <td>{{ link_to("users/delete/"~user.getId(), "<i class='bordered red remove icon'") }}</td>
             {% endfor %}
 
         </tr>

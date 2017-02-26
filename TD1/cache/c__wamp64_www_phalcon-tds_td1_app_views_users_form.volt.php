@@ -21,7 +21,8 @@
 <div class="ui left icon input">
     <a class="ui basic button" href="<?= $this->url->get('users/index') ?>">Retour à la liste</a>
 </div><br><br><br>
-    <form class="ui form" action="<?= $this->url->get('users/create') ?>" method="post">
+    <form class="ui form" action="<?= $this->url->get('users/update/') ?>" method="post">
+
         <?php foreach ($users as $user) { ?>
         <div>
         <div class="two fields">
@@ -41,33 +42,39 @@
             </div>
             <div class="field">
                 <label>Mot de passe*</label>
-                <input type="text" name="mdp" placeholder="Mot de passe" value="<?= $user->password ?>">
+                <input type="password" name="mdp" placeholder="Mot de passe" value="<?= $user->password ?>">
             </div>
         </div>
         <div class="field">
             <label>Email*</label>
-            <input type="password" name="mail" placeholder="Email" value="<?= $user->email ?>">
+            <input type="text" name="mail" placeholder="Email" value="<?= $user->email ?>">
         </div>
         <div class="field">
             <label>Role</label>
             <select class="ui fluid dropdown" name="idrole">
-                <?php if(<?= $user->idrole === 2 ?>) ?>
+                <?php if (($user->idrole == 2)) { ?>
+                    <option value="2" selected>user</option>
+                <?php } else { ?>
                     <option value="2" >user</option>
-                <?php else ?>
-                    <option value="2" >user</option>
-                <?php if(<?= $user->idrole === 1 ?>) ?>
+                <?php } ?>
+                <?php if (($user->idrole == 1)) { ?>
                     <option value="1" selected >admin</option>
-                <?php else ?>
-                     <option value="2">admin</option>
-                <?php if(<?= $user->idrole === 3 ?>) ?>
+                <?php } else { ?>
+                    <option value="1"  >admin</option>
+                <?php } ?>
+                <?php if (($user->idrole == 3)) { ?>
                     <option value="3" selected >superadmin</option>
-                <?php else ?>
-                    <option value="3">superadmin</option>
+                <?php } else { ?>
+                    <option value="3"  >superadmin</option>
+                <?php } ?>
+
             </select>
         </div>
         <div class="ui buttons">
             <input type="submit" name="valider" value="Valider" class="positive ui button">
             <input type="submit" name="reinitialiser" value="Réinitialiser" class="ui button">
+            <?= $user->id ?>
+            <input type="hidden" value="<?= $user->id ?>" name="id">
         </div>
         </div>
         <?php } ?>

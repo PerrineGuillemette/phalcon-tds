@@ -12,6 +12,7 @@ class UsersController extends Controller
             array("order"=>$sfield)
         );
         $this->view->setVar("users",$users);
+
     }
 
     //Formulaire de saisie/modification d'un utilisateur, id est la clé primaire de l'utilisateur à modifier
@@ -24,19 +25,43 @@ class UsersController extends Controller
         $this->view->setVar("users",$users);
     }
 
-    //Met à jour l'utilisateur posté dans la base de données, puis affiche un message
-    public function updateAction($id){
-        $user = User::find(
+    public function formAjoutAction($id=null){
+    }
+
+    public function showAction($id=null){
+        $user = User::findFirst(
             [
-                "id = $id",
+                "id= $id",
             ]
         );
-        $user->setFirstname($_POST["firstname"]);
-        $user->setLastname($_POST["lastname"]);
-        $user->setEmail($_POST["mail"]);
-        $user->setImage($_POST["image"]);
-        $user->setIdrole($_POST["idrole"]);
+        $this->view->setVar("user",$user);
     }
+
+    //Met à jour l'utilisateur posté dans la base de données, puis affiche un message
+    public function updateAction($id=null){
+        if(isset($_POST["id"])) {
+            $id = $_POST["id"];
+            $user = User::findFirst(
+                [
+                    "id = $id"
+                ]
+            );
+
+            $user->firstname=$_POST["prenom"];
+            $user->lastname=$_POST["nom"];
+            $user->email=$_POST["mail"];
+            $user->idrole=$_POST["idrole"];
+
+            if ($user->update() === false)
+                echo "La modification a échouée \n";
+            else
+                echo "La modification a été effectuée";
+        }
+    }
+
+
+
+
 
     //Supprime l'utilisateur dont l'id est passé en paramètre
     public function deleteAction($id){
@@ -73,7 +98,3 @@ class UsersController extends Controller
             echo "Utilisateur créé avec succès";
     }
 }
-/*
-exemple de linkTo sur un bouton :
-{{linkTo("users/delete", "<i class='bordered red remove icon'>")}}
-*/
