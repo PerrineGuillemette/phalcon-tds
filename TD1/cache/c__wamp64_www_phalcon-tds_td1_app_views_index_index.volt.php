@@ -17,5 +17,6 @@
 
 <button class="ui button active">salut</button><br>
 
-<?= $this->tag->linkTo(['users', 'Vue']) ?>
+<?= $this->tag->linkTo(['users', 'Vue']) ?><br>
+<?= $this->tag->linkTo(['login', 'Connexion']) ?>
 

@@ -17,6 +17,6 @@
 
 <button class="ui button active">salut</button><br>
 
-{{ link_to("users","Vue") }}
-{{ link_to("users","Vue") }}
+{{ link_to("users","Vue") }}<br>
+{{ link_to("login","Connexion") }}
 
